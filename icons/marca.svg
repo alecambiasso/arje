@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="ARJE">
+  <g stroke="#0C0A09" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M50 6 L54 62 L6 90 Z" fill="#FF5A1F"/>
+    <path d="M50 6 L94 90 L54 62 Z" fill="#C8390C"/>
+    <path d="M6 90 L54 62 L94 90 Z" fill="#FFB547"/>
+  </g>
+</svg>
