@@ -95,6 +95,9 @@ const EJERCICIOS = {
   'dead-bug': { nombre: 'Dead bug', tipo: 'corporal', claves: ['Lumbar pegada al piso todo el tiempo.', 'Estirá brazo y pierna contrarios, lento.'] },
   'pallof': { nombre: 'Pallof press', tipo: 'polea', claves: ['De costado a la polea; empujá al frente.', 'No dejes que la polea te gire el torso.'] },
   'plancha-lateral': { nombre: 'Plancha lateral', tipo: 'corporal', claves: ['Codo debajo del hombro, cuerpo en línea.', 'Apretá glúteos; no dejes caer la cadera.'] },
+  'remo-curvado': { nombre: 'Remo curvado con barra', tipo: 'barra', claves: ['Cadera atrás, espalda neutra, torso a unos 45°.', 'Llevá la barra al ombligo con los codos.', 'Si la lumbar se queja, pasate al remo con pecho apoyado.'] },
+  'abduccion-cadera': { nombre: 'Abducción de cadera en máquina', tipo: 'maquina', claves: ['Sentado, abrí las piernas contra las almohadillas.', 'Pausa de 1 segundo afuera; volvé lento.'] },
+  'elevacion-frontal': { nombre: 'Elevación frontal con mancuernas', tipo: 'mancuerna', claves: ['Subí hasta la altura de los ojos, brazos casi rectos.', 'Sin balancear la cadera.'] },
   'crunch-polea': { nombre: 'Crunch en polea', tipo: 'polea', claves: ['De rodillas, soga al costado de la cabeza.', 'Enrollá la columna llevando las costillas a la cadera.'] }
 };
 
@@ -102,30 +105,28 @@ const EJERCICIOS = {
 // superserie: letra compartida — el descanso se hace después del último del grupo.
 const DIAS = {
   lunes: {
-    weekday: 1, nombre: 'Lunes', titulo: 'Pecho, hombro y tríceps', sede: 'madero', hora: '19:00',
+    weekday: 1, nombre: 'Lunes', titulo: 'Pecho y tríceps', sede: 'madero', hora: '19:00',
     slots: [
-      { id: 'L1', principal: true, series: 4, repMin: 6, repMax: 10, descanso: 150, variantes: ['press-banca-barra'], extra: ['press-banca-smith', 'press-plano-mancuernas', 'press-pecho-maquina'] },
-      { id: 'L2', series: 3, repMin: 8, repMax: 12, descanso: 120, variantes: ['press-inclinado-mancuernas', 'press-inclinado-maquina', 'press-inclinado-smith'] },
-      { id: 'L3', series: 3, repMin: 12, repMax: 15, descanso: 75, variantes: ['cruce-poleas', 'aperturas-mancuernas', 'peck-deck'] },
-      { id: 'L4', series: 3, repMin: 8, repMax: 12, descanso: 120, variantes: ['press-hombro-mancuernas', 'press-hombro-maquina', 'press-arnold'] },
-      { id: 'L5', series: 4, repMin: 12, repMax: 20, descanso: 0, superserie: 'A', variantes: ['laterales-mancuernas', 'laterales-polea', 'laterales-maquina'] },
-      { id: 'L6', series: 3, repMin: 15, repMax: 20, descanso: 75, superserie: 'A', variantes: ['face-pull'], extra: ['pajaros-maquina'] },
-      { id: 'L7', series: 3, repMin: 10, repMax: 15, descanso: 75, variantes: ['triceps-polea-cabeza', 'press-frances-mancuernas', 'extension-cabeza-mancuerna'] }
+      { id: 'L1', principal: true, series: 3, repMin: 10, repMax: 12, descanso: 150, variantes: ['press-banca-barra'], extra: ['press-banca-smith', 'press-plano-mancuernas', 'press-pecho-maquina'] },
+      { id: 'L2', series: 3, repMin: 10, repMax: 12, descanso: 120, variantes: ['press-inclinado-mancuernas', 'press-inclinado-maquina', 'press-inclinado-barra'] },
+      { id: 'L3', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['cruce-poleas', 'aperturas-mancuernas', 'cruce-poleas-bajo-alto'] },
+      { id: 'L4', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['triceps-polea-soga', 'triceps-polea-barra', 'press-cerrado-smith'] },
+      { id: 'L5', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['triceps-polea-cabeza', 'extension-cabeza-mancuerna', 'press-frances-ez'] },
+      { id: 'L6', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['triceps-unilateral', 'press-frances-mancuernas', 'fondos-asistidos'] },
+      { id: 'L7', series: 2, repMin: 15, repMax: 20, descanso: 60, nota: 'No está en la plantilla: lo sumo por tu cuello y tus hombros.', variantes: ['face-pull'], extra: ['pajaros-maquina'] }
     ],
     circuitos: [],
     cardio: { nombre: 'Cinta inclinada', min: 15, detalle: 'Inclinación 8–12 %, 5–5,5 km/h. Sin agarrarte de la cinta.' }
   },
   miercoles: {
-    weekday: 3, nombre: 'Miércoles', titulo: 'Espalda, bíceps y core', sede: 'nunez', hora: '8:00',
+    weekday: 3, nombre: 'Miércoles', titulo: 'Espalda y bíceps', sede: 'nunez', hora: '8:00',
     slots: [
-      { id: 'M1', principal: true, series: 4, repMin: 8, repMax: 12, descanso: 120, variantes: ['jalon-pecho'], extra: ['dominadas-asistidas', 'jalon-convergente'] },
-      { id: 'M2', series: 4, repMin: 8, repMax: 12, descanso: 120, variantes: ['remo-pecho-apoyado', 'remo-mancuerna', 'remo-t-apoyado'] },
-      { id: 'M3', series: 3, repMin: 10, repMax: 12, descanso: 90, variantes: ['remo-polea-neutro', 'remo-polea-ancho', 'jalon-unilateral'] },
-      { id: 'M4', series: 2, repMin: 12, repMax: 15, descanso: 60, variantes: ['pullover-polea', 'pullover-soga', 'pullover-mancuerna'] },
-      { id: 'M5', series: 3, repMin: 15, repMax: 20, descanso: 0, superserie: 'A', variantes: ['pajaros-maquina', 'pajaros-mancuernas', 'face-pull'] },
-      { id: 'M6', series: 3, repMin: 15, repMax: 20, descanso: 75, superserie: 'A', variantes: ['laterales-polea', 'laterales-maquina', 'laterales-mancuernas'] },
-      { id: 'M7', series: 3, repMin: 8, repMax: 12, descanso: 90, variantes: ['curl-ez', 'curl-barra', 'curl-polea-barra'] },
-      { id: 'M8', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['curl-martillo', 'curl-martillo-soga', 'curl-martillo-cruzado'] }
+      { id: 'M1', principal: true, series: 3, repMin: 10, repMax: 12, descanso: 150, nota: 'La plantilla pone remo curvado con barra. Por tu lumbar arrancá con el pecho apoyado; si te sentís bien, cambialo desde el botón de reemplazo.', variantes: ['remo-pecho-apoyado'], extra: ['remo-curvado', 'remo-t-apoyado', 'remo-mancuerna'] },
+      { id: 'M2', series: 3, repMin: 10, repMax: 12, descanso: 90, variantes: ['remo-polea-neutro', 'remo-polea-ancho', 'jalon-unilateral'] },
+      { id: 'M3', series: 3, repMin: 10, repMax: 12, descanso: 120, variantes: ['jalon-pecho', 'dominadas-asistidas', 'jalon-convergente'] },
+      { id: 'M4', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['curl-predicador', 'curl-arana', 'curl-polea-barra'] },
+      { id: 'M5', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['curl-inclinado', 'curl-martillo', 'curl-concentrado'] },
+      { id: 'M6', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['curl-barra', 'curl-ez', 'curl-bayesian'] }
     ],
     circuitos: [
       { id: 'MC', nombre: 'Core de espalda sana', vueltas: 3, ejercicios: [
@@ -135,14 +136,14 @@ const DIAS = {
     cardio: { nombre: 'Bici', min: 15, detalle: 'Ritmo cómodo: podés hablar pero no cantar.' }
   },
   jueves: {
-    weekday: 4, nombre: 'Jueves', titulo: 'Pierna, glúteo y core', sede: 'nunez', hora: '18:15',
+    weekday: 4, nombre: 'Jueves', titulo: 'Pierna completa', sede: 'nunez', hora: '18:15',
     slots: [
-      { id: 'J1', principal: true, series: 4, repMin: 8, repMax: 12, descanso: 150, variantes: ['prensa'], extra: ['hack-squat'] },
-      { id: 'J2', series: 3, repMin: 8, repMax: 10, descanso: 120, variantes: ['rumano-mancuernas', 'rumano-smith', 'rumano-barra'] },
-      { id: 'J3', series: 3, repMin: 8, repMax: 12, descanso: 90, variantes: ['hip-thrust-maquina', 'hip-thrust-barra', 'puente-smith'] },
-      { id: 'J4', series: 3, repMin: 12, repMax: 15, descanso: 75, variantes: ['sillon-cuadriceps', 'sillon-unilateral', 'estocadas'] },
-      { id: 'J5', series: 3, repMin: 10, repMax: 15, descanso: 75, variantes: ['camilla-femoral', 'femoral-sentado', 'femoral-unilateral'] },
-      { id: 'J6', series: 3, repMin: 12, repMax: 15, descanso: 60, variantes: ['gemelos-pie', 'gemelos-prensa', 'gemelos-sentado'] }
+      { id: 'J1', principal: true, series: 3, repMin: 10, repMax: 12, descanso: 150, variantes: ['hack-squat'], extra: ['prensa'] },
+      { id: 'J2', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['sillon-cuadriceps', 'sillon-unilateral', 'estocadas'] },
+      { id: 'J3', series: 3, repMin: 10, repMax: 12, descanso: 60, variantes: ['abduccion-cadera'] },
+      { id: 'J4', series: 3, repMin: 10, repMax: 12, descanso: 75, variantes: ['camilla-femoral', 'femoral-sentado', 'femoral-unilateral'] },
+      { id: 'J5', series: 3, repMin: 10, repMax: 12, descanso: 90, nota: 'Acá la plantilla pone flexión de cadera. Lo cambio por glúteo: con tu lumbar rinde mucho más.', variantes: ['hip-thrust-maquina', 'hip-thrust-barra', 'rumano-mancuernas'] },
+      { id: 'J6', series: 3, repMin: 10, repMax: 12, descanso: 120, variantes: ['prensa'], extra: ['hack-squat', 'estocadas'] }
     ],
     circuitos: [
       { id: 'JC', nombre: 'Core', vueltas: 3, ejercicios: [
@@ -152,16 +153,15 @@ const DIAS = {
     cardio: { nombre: 'Cinta inclinada', min: 15, detalle: 'Si tenés resto, estirá a 20 minutos.' }
   },
   viernes: {
-    weekday: 5, nombre: 'Viernes', titulo: 'Pecho y brazos', sede: 'nunez', hora: '8:00',
+    weekday: 5, nombre: 'Viernes', titulo: 'Hombro, brazos y pecho', sede: 'nunez', hora: '8:00',
     slots: [
-      { id: 'V1', principal: true, series: 4, repMin: 6, repMax: 10, descanso: 150, variantes: ['press-inclinado-smith'], extra: ['press-inclinado-barra', 'press-inclinado-mancuernas', 'press-inclinado-maquina'] },
-      { id: 'V2', series: 3, repMin: 8, repMax: 12, descanso: 120, variantes: ['press-pecho-maquina', 'fondos-asistidos', 'press-plano-mancuernas'] },
-      { id: 'V3', series: 3, repMin: 12, repMax: 15, descanso: 60, nota: 'Última serie con drop set: al terminar, bajá el peso un 30 % y seguí hasta 1 antes del fallo.', variantes: ['peck-deck', 'cruce-poleas-bajo-alto', 'aperturas-mancuernas'] },
-      { id: 'V4', series: 3, repMin: 10, repMax: 12, descanso: 0, superserie: 'A', variantes: ['curl-inclinado', 'curl-predicador', 'curl-arana'] },
-      { id: 'V5', series: 3, repMin: 10, repMax: 12, descanso: 90, superserie: 'A', variantes: ['press-frances-ez', 'press-cerrado-smith', 'press-frances-mancuernas'] },
-      { id: 'V6', series: 3, repMin: 12, repMax: 15, descanso: 0, superserie: 'B', variantes: ['curl-bayesian', 'curl-polea-alta', 'curl-concentrado'] },
-      { id: 'V7', series: 3, repMin: 12, repMax: 15, descanso: 75, superserie: 'B', variantes: ['triceps-polea-barra', 'triceps-polea-soga', 'triceps-unilateral'] },
-      { id: 'V8', series: 2, repMin: 15, repMax: 20, descanso: 60, variantes: ['face-pull'], extra: ['pajaros-maquina'] }
+      { id: 'V1', principal: true, series: 3, repMin: 10, repMax: 12, descanso: 120, variantes: ['press-hombro-mancuernas'], extra: ['press-hombro-maquina', 'press-arnold'] },
+      { id: 'V2', series: 3, repMin: 10, repMax: 12, descanso: 60, variantes: ['laterales-mancuernas', 'laterales-polea', 'laterales-maquina'] },
+      { id: 'V3', series: 3, repMin: 10, repMax: 12, descanso: 60, variantes: ['pajaros-maquina', 'pajaros-mancuernas'], extra: ['elevacion-frontal'] },
+      { id: 'V4', series: 3, repMin: 10, repMax: 12, descanso: 120, nota: 'Segundo día de pecho de la semana: es tu prioridad, no lo saltees.', variantes: ['press-inclinado-smith', 'press-inclinado-barra', 'press-pecho-maquina'] },
+      { id: 'V5', series: 3, repMin: 10, repMax: 12, descanso: 60, nota: 'Última serie con drop set: al terminar, bajá el peso un 30 % y seguí hasta 1 antes del fallo.', variantes: ['peck-deck', 'cruce-poleas-bajo-alto', 'aperturas-mancuernas'] },
+      { id: 'V6', series: 3, repMin: 10, repMax: 12, descanso: 0, superserie: 'A', variantes: ['curl-bayesian', 'curl-polea-alta', 'curl-martillo'] },
+      { id: 'V7', series: 3, repMin: 10, repMax: 12, descanso: 75, superserie: 'A', variantes: ['triceps-polea-barra', 'triceps-polea-soga', 'triceps-unilateral'] }
     ],
     circuitos: [
       { id: 'VC', nombre: 'Cierre para reventar', vueltas: 2, fuego: true, ejercicios: [

@@ -1,5 +1,5 @@
 // ARJE — service worker: todo se guarda en caché para que la app ande sin señal.
-const VERSION = 'arje-v1.0.0';
+const VERSION = 'arje-v1.1.0';
 const ARCHIVOS = [
   './', 'index.html', 'styles.css', 'app.js', 'data.js', 'logic.js', 'icons.js', 'manifest.webmanifest',
   'icons/marca.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/favicon-32.png',

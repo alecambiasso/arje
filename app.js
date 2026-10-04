@@ -2,7 +2,7 @@
 // ARJE · Entreno — interfaz. Depende de icons.js, data.js y logic.js.
 (function () {
   const CLAVE = 'arje.v1';
-  const VERSION_APP = '1.0.0';
+  const VERSION_APP = '1.1.0';
   const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   const DIAS_NOMBRE = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   const INICIALES = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
